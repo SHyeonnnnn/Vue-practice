@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div :class="{red:isRed,'font-bold':isBold}">Hello</div><!-- 하이픈이 클래스명에 들어갈땐 따옴표로 묶어줘야함 -->
+        <div :style="{ color:'yellow' , fontSize:'50px' }">Hello</div>
+        <button @click="update">Click</button>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    isRed:false,
+                    isBold:false
+                }
+            },
+            methods: {
+               update(){
+                    this.isRed =! this.isRed 
+                    this.isBold =! this.isBold 
+               }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px;margin: 50px auto;font-size: 5rem;}
+        button{font-size: 20px; margin: 0 20px; padding: 10px;}
+        .red{color: red;}
+        .font-bold{font-weight: bold; font-size: 5.2rem; text-transform: uppercase;}
+    </style>
+</body>
+</html>

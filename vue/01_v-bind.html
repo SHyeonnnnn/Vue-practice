@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 기초</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ nextYear('안녕!') }}
+        <br>
+        <input v-bind:type="type" :value="inputData"><!-- v-bind:중괄호없이 / v-bind생략가능 : 만써도됨 (데이타바인드)  -->
+        <a :href="link" target="_blank">naver</a>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    person: {
+                        name: '지현',
+                        age: 30
+                    },
+                    inputData: '반갑습니다',
+                    type:'text',
+                    link:'https://naver.com'
+                }
+            },
+            methods: {
+                nextYear(a) {
+                    return a+ this.person.name + '는 내년에' + (this.person.age + 1) + '살 입니다.'; //return 한줄로
+                },
+                otherMethod () {
+                    this.nextYear()
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px;margin: 50px auto;}
+    </style>
+</body>
+</html>

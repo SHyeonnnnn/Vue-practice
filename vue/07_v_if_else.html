@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if-else , v-show</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <template  v-if="number===1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <div v-else-if="number===2">Hi</div>
+        <div v-else>No</div>
+        <br>
+        <button @click="increasNumber">Increas</button>
+        {{ number }}
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    number:1
+                }
+            },
+            methods: {
+                increasNumber(){
+                    this.number++;
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px;margin: 50px auto;font-size: 5rem;}
+        button{font-size: 24px; margin: 0 20px; padding: 20px 50px;border-radius: 10px;border: none;outline: none;position: fixed; top: 60%; left: 20%;}
+        button:hover{background: #3694d7; color: #fff;}
+        button:active{background: #10222f; color: #3694d7;}
+    </style>
+</body>
+</html>

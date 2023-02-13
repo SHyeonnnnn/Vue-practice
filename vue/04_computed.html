@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue Computed 속성</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- {{ number + 1 }} -->
+        {{ reversMessage() }} <br>
+        {{ reversMessage1 }} <br>
+        {{ reversMessage() }} <br>
+        {{ reversMessage1 }} <br>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    /* number: 1 */
+                    message: '안녕하세요'
+                }
+            },
+            methods: {
+                reversMessage() {//함수
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            computed:{//캐싱되어있다가 보여주는거라서 훨씬빠름
+                reversMessage1() {
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px;margin: 50px auto;font-size: 5rem;}
+        button{font-size: 20px; margin: 0 20px; padding: 10px;}
+    </style>
+</body>
+</html>

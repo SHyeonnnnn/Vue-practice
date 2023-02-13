@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{ people[0].name }} {{ people[0].age }}</div>
+        <div>{{ people[1].name }} {{ people[1].age }}</div>
+        <div>{{ people[2].name }} {{ people[2].age }}</div>
+        <hr>
+        <!-- <div v-for="person in people">{{ person.name }} {{ person.age }}</div>for문 1 -->
+        <div v-for="(person, index) in people" :key="person.id">
+            {{ person.name }} {{ person.age }} &nbsp;&nbsp;&nbsp; {{ index }}
+        </div><!-- for문 2 -->
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    people: [
+                        {id:1, name:'지현',age:30},
+                        {id:2, name:'지영',age:20},
+                        {id:3, name:'원식',age:40},
+                        {id:4, name:'승현',age:30},
+                        {id:5, name:'수영',age:20},
+                    ]
+                }
+            },
+            methods: {
+                
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px;margin: 50px auto;font-size: 3rem;}
+        button{font-size: 24px; margin: 0 20px; padding: 20px 50px;border-radius: 10px;border: none;outline: none;position: fixed; top: 60%; left: 20%;}
+        button:focus{outline: auto;}
+        button:hover{background: #3694d7; color: #fff;}
+        button:active{background: #10222f; color: #3694d7;}
+    </style>
+</body>
+</html>
