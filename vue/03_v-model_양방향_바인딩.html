@@ -10,8 +10,8 @@
 <body>
     <div id="app">
         <!-- <input type="text" :value="text" @:keyup="updateText"><br> -->
-        <input type="text" v-model="text"><br><!-- 양방향 -->
-        {{ text }}
+        <input type="text" v-model="text1"><br><!-- 양방향 -->
+        {{ text1 }}
     </div>
     <script>
         const { createApp } = Vue
@@ -19,14 +19,14 @@
         createApp({
             data() {
                 return {
-                    text: 'text'
+                    text1: '텍스트'
                 }
             },
-            methods: {
+            /* methods: {
                updateText(e) {
                 this.text=e.target.value;
                }
-            }
+            } */
         }).mount('#app')
     </script>
     <style>

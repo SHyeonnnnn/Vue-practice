@@ -9,14 +9,13 @@
 </head>
 <body>
     <div id="app">
-        <!-- <button onclick="alert('hi')">click</button>
+        <button onclick="alert('hi')">click</button>
         <button v-on:click="alert">v-on</button>
         <button @:click="alert">@ v-on @</button>
         <br><br>
         {{ year }} <br><br>
         <button @:click="plus">PLUS</button>
-        <button @:click="reset">reset</button>
-        <button @:click="minus">MINUS</button> -->
+        <button @:click="minus">MINUS</button>
         <form v-on:submit.prevent="submit"><!-- .prevent = 새로고침막는거 -->
             <input type="text"><br>
             <button type="submit">Submit</button>
@@ -28,11 +27,11 @@
         createApp({
             data() {
                 return {
-                    /* year: 2023 */
+                    year: 2023
                 }
             },
             methods: {
-               /*  alert() {
+                alert() {
                     alert('hi v-on')
                 },
                 plus() {
@@ -40,12 +39,11 @@
                 },
                 minus() {
                     this.year--;
-                } */
-                submit(e) {
-                    
+                }
+                /* submit(e) {
                     alert('submitted');
                     console.log('hello')
-                }
+                } */
             }
         }).mount('#app')
     </script>
